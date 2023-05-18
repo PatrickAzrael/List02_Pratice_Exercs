@@ -3,37 +3,53 @@ import java.util.Scanner;
 /*
   * Nome do Aluno: Patrick Azrael Silva Carvalho
  * RA: 722313052
- * Nome do Programa: Faça um programa para imprimir o conceito de um aluno. O
-   conceito é calculado em função da nota do aluno que varia de 0
-   a 100. As faixas da correlação são mostradas abaixo:
-    Nota Conceito
-   0 a 49 Insuficiente
-   50 a 64 Regular
-   65 a 84 Bom
-   85 100 Ótimo
+ * Nome do Programa: Faça um programa que leia o nome, o sobrenome, a idade, em
+     anos, e a naturalidade (cidade de nascimento) de uma pessoa.
+     Depois, o programa deve dar a seguinte opção “Deseja
+     visualizar dados completos?”. Se o caractere digitado pelo
+     usuário for ‘S’ o programa deve imprimir na tela Nome,
+     Sobrenome, idade e naturalidade. Se o caractere digitado pelo
+     usuário for ‘N’ o programa deve imprimir o Nome e a idade. Se
+     o caractere não for nenhuma das outras opções acima o programa
+     deve imprimir “Digitação errada. Tente Novamente”.
   * Data: 16/04/23
   */
 public class Exerc5 {
     public static void main(String[] args) {
         Scanner leia = new Scanner(System.in);
-        System.out.println("Informe a primeira nota: ");
-        int nota1 = leia.nextInt();
 
-        System.out.println("Informe a segunda nota: ");
-        int nota2 = leia.nextInt();
+        System.out.println("Informe seu nome: ");
+        String nome = leia.nextLine();
 
-        int media = (nota1 + nota2) / 2;
+        System.out.println("Escreva seu sobrenome: ");
+        String sobrenome = leia.nextLine();
+
+        System.out.println("Informe a sua naturalidade(Cidade em que nasceu): ");
+        String cidade = leia.nextLine();
+
+        System.out.println("Informe a sua idade: ");
+        int idade = leia.nextInt();
+
+        System.out.println("Você deseja visualizar os dados informados completamente? S ou N?");
+        char confirmacao = leia.next().charAt(0);
 
         leia.close();
 
-        if (media >= 0 && media <= 49) {
-            System.out.printf("Sua nota foi insuficiente [%d]", media);
-        } else if (media >= 50 && media <= 64) {
-            System.out.printf("Sua nota foi Regular [%d]", media);
-        } else if (media >= 65 && media <= 84) {
-            System.out.printf("Sua nota foi Boa [%d]", media);
+        if (confirmacao == 'S') {
+            System.out.printf("O nome informado foi [%s].", nome);
+            System.out.println(" ");
+            System.out.printf("O sobrenome informado foi [%s].", sobrenome);
+            System.out.println(" ");
+            System.out.printf("A idade informada foi [%d].", idade);
+            System.out.println(" ");
+            System.out.printf("A sua naturalidade é [%s].", cidade);
+        } else if (confirmacao == 'N') {
+            System.out.printf("O nome informado foi [%s].", nome);
+            System.out.println(" ");
+            System.out.printf("A idade informada foi [%d].", idade);
         } else {
-            System.out.printf("Sua media foi ótima [%d]", media);
+            System.out.printf("Digitação errada, tente novamente!");
         }
+
     }
 }
